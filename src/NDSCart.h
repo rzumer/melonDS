@@ -35,6 +35,7 @@ extern u8 EncSeed1[5];
 
 extern u8* CartROM;
 extern u32 CartROMSize;
+extern char CartGameCode[5];
 
 extern u32 CartID;
 

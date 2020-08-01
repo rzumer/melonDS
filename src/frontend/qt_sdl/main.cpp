@@ -39,6 +39,7 @@
 #include "VideoSettingsDialog.h"
 #include "AudioSettingsDialog.h"
 #include "WifiSettingsDialog.h"
+#include "PlayingCardsDialog.h"
 
 #include "types.h"
 #include "version.h"
@@ -47,6 +48,7 @@
 #include "OSD.h"
 
 #include "NDS.h"
+#include "NDSCart.h"
 #include "GBACart.h"
 #include "OpenGLSupport.h"
 #include "GPU.h"
@@ -1468,6 +1470,13 @@ void MainWindow::onOpenFile()
     }
     else
     {
+        // Open the playing cards UI if a compatible cartridge was inserted
+        if (PlayingCardsDialog::supportsCart(NDSCart::CartGameCode))
+        {
+            printf("Playing cards dialog enabled!\n");
+            PlayingCardsDialog::openDlg(this);
+        }
+
         emuThread->emuRun();
     }
 }

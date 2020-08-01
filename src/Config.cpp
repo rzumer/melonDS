@@ -37,6 +37,8 @@ char DSiBIOS7Path[1024];
 char DSiFirmwarePath[1024];
 char DSiNANDPath[1024];
 
+char PlayingCardsPath[1024];
+
 #ifdef JIT_ENABLED
 int JIT_Enable = false;
 int JIT_MaxBlockSize = 32;
@@ -57,6 +59,8 @@ ConfigEntry ConfigFile[] =
     PATH_CONFIG_ENTRY(DSiBIOS7Path),
     PATH_CONFIG_ENTRY(DSiFirmwarePath),
     PATH_CONFIG_ENTRY(DSiNANDPath),
+
+    PATH_CONFIG_ENTRY(PlayingCardsPath),
 
 #ifdef JIT_ENABLED
     {"JIT_Enable", 0, &JIT_Enable, 0, NULL, 0},

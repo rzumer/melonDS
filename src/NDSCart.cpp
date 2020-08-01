@@ -473,6 +473,7 @@ u32 DataOutLen;
 bool CartInserted;
 u8* CartROM;
 u32 CartROMSize;
+char CartGameCode[5];
 u32 CartCRC;
 u32 CartID;
 bool CartIsHomebrew;
@@ -909,10 +910,11 @@ bool LoadROM(const char* path, const char* sram, bool direct)
     while (CartROMSize < len)
         CartROMSize <<= 1;
 
-    u32 gamecode;
+    CartGameCode[4] = '\0';
     fseek(f, 0x0C, SEEK_SET);
-    fread(&gamecode, 4, 1, f);
-    printf("Game code: %c%c%c%c\n", gamecode&0xFF, (gamecode>>8)&0xFF, (gamecode>>16)&0xFF, gamecode>>24);
+    fread(&CartGameCode, 1, 4, f);
+    u32 gamecode = CartGameCode[0] | CartGameCode[1] << 8 | CartGameCode[2] << 16 | CartGameCode[3] << 24;
+    printf("Game code: %s\n", CartGameCode);
 
     u8 unitcode;
     fseek(f, 0x12, SEEK_SET);

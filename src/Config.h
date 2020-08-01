@@ -51,6 +51,8 @@ extern char DSiBIOS7Path[1024];
 extern char DSiFirmwarePath[1024];
 extern char DSiNANDPath[1024];
 
+extern char PlayingCardsPath[1024];
+
 #ifdef JIT_ENABLED
 extern int JIT_Enable;
 extern int JIT_MaxBlockSize;
