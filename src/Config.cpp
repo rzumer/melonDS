@@ -45,16 +45,18 @@ int JIT_LiteralOptimisations = true;
 int JIT_FastMemory = true;
 #endif
 
+#define PATH_CONFIG_ENTRY(VarName) {#VarName, 1, VarName, 0, "", 1023}
+
 ConfigEntry ConfigFile[] =
 {
-    {"BIOS9Path", 1, BIOS9Path, 0, "", 1023},
-    {"BIOS7Path", 1, BIOS7Path, 0, "", 1023},
-    {"FirmwarePath", 1, FirmwarePath, 0, "", 1023},
+    PATH_CONFIG_ENTRY(BIOS9Path),
+    PATH_CONFIG_ENTRY(BIOS7Path),
+    PATH_CONFIG_ENTRY(FirmwarePath),
 
-    {"DSiBIOS9Path", 1, DSiBIOS9Path, 0, "", 1023},
-    {"DSiBIOS7Path", 1, DSiBIOS7Path, 0, "", 1023},
-    {"DSiFirmwarePath", 1, DSiFirmwarePath, 0, "", 1023},
-    {"DSiNANDPath", 1, DSiNANDPath, 0, "", 1023},
+    PATH_CONFIG_ENTRY(DSiBIOS9Path),
+    PATH_CONFIG_ENTRY(DSiBIOS7Path),
+    PATH_CONFIG_ENTRY(DSiFirmwarePath),
+    PATH_CONFIG_ENTRY(DSiNANDPath),
 
 #ifdef JIT_ENABLED
     {"JIT_Enable", 0, &JIT_Enable, 0, NULL, 0},
